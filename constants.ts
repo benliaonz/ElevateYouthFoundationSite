@@ -1,7 +1,7 @@
 import { BookOpen, Trophy, HeartHandshake, Users } from 'lucide-react';
 import { Program, Stat, FinancialData } from './types';
 
-export const FOUNDATION_NAME = "Elevated Youth Foundation";
+export const FOUNDATION_NAME = "Elevate Youth Foundation";
 export const MISSION_STATEMENT = "Empowering the next generation through education, mentorship, and athletic excellence.";
 
 export const PROGRAMS: Program[] = [
@@ -43,18 +43,18 @@ export const STATS: Stat[] = [
 ];
 
 export const FINANCIAL_DATA: FinancialData[] = [
-  { name: 'Program Services', value: 82, color: '#10b981' }, // emerald-500
+  { name: 'Program Services', value: 82, color: '#1e293b' }, // slate-800 (Navy)
   { name: 'Fundraising', value: 10, color: '#3b82f6' },      // blue-500
-  { name: 'Management', value: 8, color: '#64748b' },        // slate-500
+  { name: 'Management', value: 8, color: '#94a3b8' },        // slate-400
 ];
 
 export const SYSTEM_INSTRUCTION = `
-You are the AI Assistant for the Elevated Youth Foundation.
+You are the AI Assistant for the Elevate Youth Foundation.
 Your tone should be inspiring, professional, warm, and helpful.
 Key Information:
 - Mission: ${MISSION_STATEMENT}
 - Programs: Education (scholarships, tutoring), Athletics (sports leagues), Mentorship, Community Outreach.
 - Financials: 82% of donations go directly to programs.
 - Get Involved: Users can donate, volunteer, or become a mentor.
-- Contact: support@elevatedyouth.org
+- Contact: support@elevateyouth.org
 `;
