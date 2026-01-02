@@ -11,23 +11,18 @@ export default function Navbar() {
         <div className="flex justify-between h-20">
           <div className="flex items-center">
             <a href="#" className="flex items-center group">
-              <img 
-                src="logo.png" 
-                alt={FOUNDATION_NAME} 
-                className="h-12 w-auto object-contain"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).style.display = 'none';
-                  (e.target as HTMLImageElement).parentElement?.insertAdjacentHTML('afterbegin', `<span class="font-bold text-xl tracking-tighter text-slate-900">ELEVATE<span class="block text-[10px] tracking-widest text-slate-600">YOUTH FOUNDATION</span></span>`);
-                }}
-              />
+              <div className="flex flex-col">
+                 <span className="font-bold text-2xl tracking-tighter text-indigo-950 leading-none">ELEVATE</span>
+                 <span className="text-[9px] tracking-[0.2em] font-medium text-indigo-900 uppercase">Youth Foundation</span>
+              </div>
             </a>
           </div>
           
           <div className="hidden md:flex items-center space-x-10">
-            <a href="#about" className="text-slate-600 hover:text-slate-900 transition-colors font-medium">About</a>
-            <a href="#programs" className="text-slate-600 hover:text-slate-900 transition-colors font-medium">Programs</a>
-            <a href="#impact" className="text-slate-600 hover:text-slate-900 transition-colors font-medium">Impact</a>
-            <button className="bg-slate-900 text-white px-6 py-2.5 rounded-full font-semibold hover:bg-slate-800 transition-all shadow-md active:scale-95">
+            <a href="#about" className="text-slate-600 hover:text-indigo-900 transition-colors font-medium">About</a>
+            <a href="#programs" className="text-slate-600 hover:text-indigo-900 transition-colors font-medium">Programs</a>
+            <a href="#impact" className="text-slate-600 hover:text-indigo-900 transition-colors font-medium">Impact</a>
+            <button className="bg-indigo-950 text-white px-6 py-2.5 rounded-full font-semibold hover:bg-indigo-900 transition-all shadow-md active:scale-95">
               Donate Now
             </button>
           </div>
@@ -35,7 +30,7 @@ export default function Navbar() {
           <div className="flex items-center md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-slate-600 hover:text-slate-900 focus:outline-none"
+              className="text-slate-600 hover:text-indigo-900 focus:outline-none"
             >
               {isOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
             </button>
@@ -47,11 +42,11 @@ export default function Navbar() {
       {isOpen && (
         <div className="md:hidden bg-white border-t border-slate-100 animate-in fade-in slide-in-from-top-2">
           <div className="px-4 pt-4 pb-6 space-y-2">
-            <a href="#about" onClick={() => setIsOpen(false)} className="block px-3 py-3 text-base font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-lg">About</a>
-            <a href="#programs" onClick={() => setIsOpen(false)} className="block px-3 py-3 text-base font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-lg">Programs</a>
-            <a href="#impact" onClick={() => setIsOpen(false)} className="block px-3 py-3 text-base font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-lg">Impact</a>
+            <a href="#about" onClick={() => setIsOpen(false)} className="block px-3 py-3 text-base font-medium text-slate-600 hover:text-indigo-900 hover:bg-indigo-50 rounded-lg">About</a>
+            <a href="#programs" onClick={() => setIsOpen(false)} className="block px-3 py-3 text-base font-medium text-slate-600 hover:text-indigo-900 hover:bg-indigo-50 rounded-lg">Programs</a>
+            <a href="#impact" onClick={() => setIsOpen(false)} className="block px-3 py-3 text-base font-medium text-slate-600 hover:text-indigo-900 hover:bg-indigo-50 rounded-lg">Impact</a>
             <div className="pt-4 px-3">
-              <button className="w-full bg-slate-900 text-white px-5 py-4 rounded-xl font-bold hover:bg-slate-800 transition-colors">
+              <button className="w-full bg-indigo-950 text-white px-5 py-4 rounded-xl font-bold hover:bg-indigo-900 transition-colors">
                 Donate Now
               </button>
             </div>

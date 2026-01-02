@@ -94,16 +94,16 @@ export default function ChatWidget() {
   return (
     <div className="fixed bottom-6 right-6 z-50">
       {isOpen && (
-        <div className="absolute bottom-16 right-0 w-80 sm:w-96 bg-white rounded-3xl shadow-2xl border border-slate-100 flex flex-col overflow-hidden animate-in slide-in-from-bottom-5 fade-in duration-300" style={{ height: '550px', maxHeight: '80vh' }}>
+        <div className="absolute bottom-16 right-0 w-80 sm:w-96 bg-white rounded-3xl shadow-2xl border border-indigo-100 flex flex-col overflow-hidden animate-in slide-in-from-bottom-5 fade-in duration-300" style={{ height: '550px', maxHeight: '80vh' }}>
           
-          <div className="bg-slate-900 p-5 flex items-center justify-between border-b border-white/10">
+          <div className="bg-indigo-950 p-5 flex items-center justify-between border-b border-white/10">
             <div className="flex items-center text-white">
-              <Sparkles className="w-5 h-5 mr-3 text-blue-400" />
+              <Sparkles className="w-5 h-5 mr-3 text-indigo-400" />
               <h3 className="font-bold text-lg">AI Support</h3>
             </div>
             <button 
               onClick={() => setIsOpen(false)}
-              className="text-slate-400 hover:text-white transition-colors"
+              className="text-indigo-400 hover:text-white transition-colors"
             >
               <X size={22} />
             </button>
@@ -118,8 +118,8 @@ export default function ChatWidget() {
                 <div 
                   className={`max-w-[85%] rounded-[20px] px-5 py-3 text-sm leading-relaxed shadow-sm ${
                     msg.role === 'user' 
-                      ? 'bg-slate-900 text-white rounded-br-none' 
-                      : 'bg-white text-slate-700 border border-slate-100 rounded-bl-none'
+                      ? 'bg-indigo-600 text-white rounded-br-none' 
+                      : 'bg-white text-indigo-950 border border-indigo-50 rounded-bl-none'
                   }`}
                 >
                   {msg.text}
@@ -128,17 +128,17 @@ export default function ChatWidget() {
             ))}
             {isLoading && (
               <div className="flex justify-start">
-                <div className="bg-white text-slate-400 border border-slate-100 rounded-2xl rounded-bl-none px-5 py-3 text-sm flex items-center space-x-2">
-                  <span className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-pulse"></span>
-                  <span className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-pulse delay-75"></span>
-                  <span className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-pulse delay-150"></span>
+                <div className="bg-white text-indigo-400 border border-indigo-50 rounded-2xl rounded-bl-none px-5 py-3 text-sm flex items-center space-x-2">
+                  <span className="w-1.5 h-1.5 bg-indigo-600 rounded-full animate-pulse"></span>
+                  <span className="w-1.5 h-1.5 bg-indigo-600 rounded-full animate-pulse delay-75"></span>
+                  <span className="w-1.5 h-1.5 bg-indigo-600 rounded-full animate-pulse delay-150"></span>
                 </div>
               </div>
             )}
             <div ref={messagesEndRef} />
           </div>
 
-          <div className="p-5 bg-white border-t border-slate-100">
+          <div className="p-5 bg-white border-t border-indigo-50">
             <div className="flex items-center gap-3">
               <input
                 type="text"
@@ -146,12 +146,12 @@ export default function ChatWidget() {
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyDown={handleKeyPress}
                 placeholder="Ask me anything..."
-                className="flex-1 px-5 py-3 rounded-2xl bg-slate-50 border border-slate-200 focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 text-sm transition-all"
+                className="flex-1 px-5 py-3 rounded-2xl bg-slate-50 border border-indigo-100 focus:outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 text-sm transition-all"
               />
               <button
                 onClick={handleSend}
                 disabled={isLoading || !inputValue.trim()}
-                className="bg-slate-900 text-white p-3 rounded-2xl hover:bg-slate-800 disabled:opacity-50 transition-all active:scale-95 shadow-lg shadow-slate-900/10"
+                className="bg-indigo-600 text-white p-3 rounded-2xl hover:bg-indigo-500 disabled:opacity-50 transition-all active:scale-95 shadow-lg shadow-indigo-600/10"
               >
                 <Send size={20} />
               </button>
@@ -163,8 +163,8 @@ export default function ChatWidget() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={`${
-          isOpen ? 'bg-slate-800' : 'bg-slate-900'
-        } text-white p-5 rounded-full shadow-2xl hover:scale-110 transition-all duration-300 flex items-center justify-center ring-4 ring-white shadow-slate-900/20`}
+          isOpen ? 'bg-indigo-900' : 'bg-indigo-950'
+        } text-white p-5 rounded-full shadow-2xl hover:scale-110 transition-all duration-300 flex items-center justify-center ring-4 ring-white shadow-indigo-950/20`}
       >
         {isOpen ? <X size={28} /> : <MessageCircle size={28} />}
       </button>

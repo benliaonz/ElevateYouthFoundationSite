@@ -43,9 +43,9 @@ export const STATS: Stat[] = [
 ];
 
 export const FINANCIAL_DATA: FinancialData[] = [
-  { name: 'Program Services', value: 82, color: '#1e293b' }, // slate-800 (Navy)
-  { name: 'Fundraising', value: 10, color: '#3b82f6' },      // blue-500
-  { name: 'Management', value: 8, color: '#94a3b8' },        // slate-400
+  { name: 'Program Services', value: 82, color: '#312e81' }, // indigo-900
+  { name: 'Fundraising', value: 10, color: '#6366f1' },      // indigo-500
+  { name: 'Management', value: 8, color: '#a5b4fc' },        // indigo-300
 ];
 
 export const SYSTEM_INSTRUCTION = `
@@ -57,4 +57,5 @@ Key Information:
 - Financials: 82% of donations go directly to programs.
 - Get Involved: Users can donate, volunteer, or become a mentor.
 - Contact: support@elevateyouth.org
+- Brand Theme: Deep Indigo and Purple.
 `;
