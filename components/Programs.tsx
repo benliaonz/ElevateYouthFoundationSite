@@ -1,5 +1,6 @@
+
 import React from 'react';
-import { PROGRAMS } from '../constants';
+import { PROGRAMS, FOUNDATION_EMAIL } from '../constants';
 import { ArrowRight } from 'lucide-react';
 
 export default function Programs() {
@@ -40,7 +41,10 @@ export default function Programs() {
                   {program.description}
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <a href="contact.html" className="inline-flex items-center gap-3 bg-indigo-950 text-white px-8 py-4 rounded-full font-bold hover:bg-indigo-800 transition-all shadow-xl shadow-indigo-950/10 active:scale-95">
+                  <a 
+                    href={`mailto:${FOUNDATION_EMAIL}?subject=Application: ${program.title}`} 
+                    className="inline-flex items-center gap-3 bg-indigo-950 text-white px-8 py-4 rounded-full font-bold hover:bg-indigo-800 transition-all shadow-xl shadow-indigo-950/10 active:scale-95"
+                  >
                     Apply Now <ArrowRight size={20} />
                   </a>
                   <button className="px-8 py-4 rounded-full border border-indigo-100 text-indigo-950 font-bold hover:bg-indigo-50 transition-all">
@@ -59,7 +63,7 @@ export default function Programs() {
             <p className="text-slate-600 text-lg max-w-2xl mx-auto mb-10">
               Our foundation is always looking for new ways to support youth. If you have a specific project or need that aligns with our mission, reach out.
             </p>
-            <a href="contact.html" className="text-indigo-600 font-black text-xl hover:text-indigo-800 transition-colors inline-flex items-center gap-2">
+            <a href={`mailto:${FOUNDATION_EMAIL}?subject=Partnership Proposal`} className="text-indigo-600 font-black text-xl hover:text-indigo-800 transition-colors inline-flex items-center gap-2">
               Propose a Partnership <ArrowRight size={24} />
             </a>
           </div>

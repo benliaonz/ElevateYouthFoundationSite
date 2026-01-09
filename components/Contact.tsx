@@ -1,6 +1,7 @@
+
 import React from 'react';
-import { Send, MapPin, Mail, Phone } from 'lucide-react';
-import { OFFICE_ADDRESS } from '../constants';
+import { Mail, MapPin, Phone, Send } from 'lucide-react';
+import { OFFICE_ADDRESS, FOUNDATION_EMAIL, FOUNDATION_PHONE } from '../constants';
 
 export default function Contact() {
   return (
@@ -33,45 +34,42 @@ export default function Contact() {
                 
                 <div className="flex items-center gap-6">
                   <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-indigo-600 shadow-sm">
+                    <Phone size={24} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-indigo-950">Call Us</h4>
+                    <p className="text-sm text-slate-500">{FOUNDATION_PHONE}</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-6">
+                  <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-indigo-600 shadow-sm">
                     <Mail size={24} />
                   </div>
                   <div>
                     <h4 className="font-bold text-indigo-950">Email Us</h4>
-                    <p className="text-sm text-slate-500">hello@elevateyouth.org</p>
+                    <p className="text-sm text-slate-500">{FOUNDATION_EMAIL}</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="mt-16 lg:mt-0 lg:w-1/2">
-              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <input 
-                    type="text" 
-                    placeholder="Full Name" 
-                    className="w-full px-6 py-4 rounded-2xl border border-indigo-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white"
-                  />
-                  <input 
-                    type="email" 
-                    placeholder="Email Address" 
-                    className="w-full px-6 py-4 rounded-2xl border border-indigo-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white"
-                  />
-                </div>
-                <select className="w-full px-6 py-4 rounded-2xl border border-indigo-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white text-slate-500">
-                  <option>Interested in Mentoring</option>
-                  <option>Volunteer Opportunities</option>
-                  <option>Partnership Inquiry</option>
-                  <option>General Support</option>
-                </select>
-                <textarea 
-                  placeholder="How can we work together?" 
-                  rows={4}
-                  className="w-full px-6 py-4 rounded-2xl border border-indigo-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white"
-                ></textarea>
-                <button className="w-full bg-indigo-950 text-white font-bold py-4 rounded-2xl hover:bg-indigo-900 transition-all shadow-xl shadow-indigo-900/20 flex items-center justify-center gap-3">
-                  Send Message <Send size={20} />
-                </button>
-              </form>
+            <div className="mt-16 lg:mt-0 lg:w-1/2 flex flex-col justify-center">
+              <div className="bg-white p-10 rounded-[32px] shadow-xl border border-indigo-100">
+                <h4 className="text-2xl font-black text-indigo-950 mb-6">Send a Message</h4>
+                <p className="text-slate-600 mb-8">
+                  Click the button below to send us an email directly. Our team typically responds within 24-48 hours.
+                </p>
+                <a 
+                  href={`mailto:${FOUNDATION_EMAIL}`}
+                  className="w-full bg-indigo-950 text-white font-bold py-5 rounded-2xl hover:bg-indigo-900 transition-all shadow-xl shadow-indigo-900/20 flex items-center justify-center gap-3 text-lg"
+                >
+                  Email the Foundation <Send size={20} />
+                </a>
+                <p className="mt-6 text-xs text-center text-slate-400 font-medium">
+                  Official Email: {FOUNDATION_EMAIL}
+                </p>
+              </div>
             </div>
           </div>
         </div>

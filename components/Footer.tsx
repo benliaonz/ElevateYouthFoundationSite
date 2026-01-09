@@ -1,6 +1,7 @@
+
 import React from 'react';
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
-import { FOUNDATION_NAME, OFFICE_ADDRESS } from '../constants';
+import { FOUNDATION_NAME, OFFICE_ADDRESS, FOUNDATION_EMAIL, FOUNDATION_PHONE } from '../constants';
 
 export default function Footer() {
   const navigate = (href: string) => (e: React.MouseEvent) => {
@@ -35,9 +36,9 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-bold mb-8 tracking-[0.1em] uppercase text-xs">Governance</h3>
             <ul className="space-y-4 text-sm font-medium">
-              <li><a href="about.html" onClick={navigate('about.html')} className="hover:text-indigo-400 transition-colors">Our Mission</a></li>
-              <li><a href="trustees.html" onClick={navigate('trustees.html')} className="hover:text-indigo-400 transition-colors">Trustees</a></li>
-              <li><a href="impact.html" onClick={navigate('impact.html')} className="hover:text-indigo-400 transition-colors">Impact Report</a></li>
+              <li><a href="about" onClick={navigate('about')} className="hover:text-indigo-400 transition-colors">Our Mission</a></li>
+              <li><a href="trustees" onClick={navigate('trustees')} className="hover:text-indigo-400 transition-colors">Trustees</a></li>
+              <li><a href="impact" onClick={navigate('impact')} className="hover:text-indigo-400 transition-colors">Impact Report</a></li>
               <li><a href="#" className="hover:text-indigo-400 transition-colors">NZ Charities Register</a></li>
               <li><a href="#" className="hover:text-indigo-400 transition-colors">Transparency Policy</a></li>
             </ul>
@@ -46,11 +47,11 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-bold mb-8 tracking-[0.1em] uppercase text-xs">Support</h3>
             <ul className="space-y-4 text-sm font-medium">
-              <li><a href="#" className="hover:text-indigo-400 transition-colors">Make a Donation</a></li>
-              <li><a href="contact.html" onClick={navigate('contact.html')} className="hover:text-indigo-400 transition-colors">Corporate Partners</a></li>
-              <li><a href="#" className="hover:text-indigo-400 transition-colors">Gift Matching</a></li>
-              <li><a href="contact.html" onClick={navigate('contact.html')} className="hover:text-indigo-400 transition-colors">Volunteer in Auckland</a></li>
-              <li><a href="programs.html" onClick={navigate('programs.html')} className="hover:text-indigo-400 transition-colors">Mentorship Program</a></li>
+              <li><a href={`mailto:${FOUNDATION_EMAIL}?subject=Donation`} className="hover:text-indigo-400 transition-colors">Make a Donation</a></li>
+              <li><a href={`mailto:${FOUNDATION_EMAIL}?subject=Corporate Partner`} className="hover:text-indigo-400 transition-colors">Corporate Partners</a></li>
+              <li><a href={`mailto:${FOUNDATION_EMAIL}?subject=Gift Matching`} className="hover:text-indigo-400 transition-colors">Gift Matching</a></li>
+              <li><a href={`mailto:${FOUNDATION_EMAIL}?subject=Volunteer`} className="hover:text-indigo-400 transition-colors">Volunteer in Auckland</a></li>
+              <li><a href="programs" onClick={navigate('programs')} className="hover:text-indigo-400 transition-colors">Mentorship Program</a></li>
             </ul>
           </div>
 
@@ -63,11 +64,11 @@ export default function Footer() {
               </li>
               <li className="flex items-center">
                 <Phone size={20} className="mr-4 text-indigo-400 flex-shrink-0" />
-                <span>+64 (9) ELEVATE</span>
+                <span>{FOUNDATION_PHONE}</span>
               </li>
               <li className="flex items-center">
                 <Mail size={20} className="mr-4 text-indigo-400 flex-shrink-0" />
-                <a href="mailto:hello@elevateyouth.org" className="hover:text-indigo-400 transition-colors">hello@elevateyouth.org</a>
+                <a href={`mailto:${FOUNDATION_EMAIL}`} className="hover:text-indigo-400 transition-colors">{FOUNDATION_EMAIL}</a>
               </li>
             </ul>
           </div>

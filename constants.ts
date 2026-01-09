@@ -1,3 +1,4 @@
+
 import { BookOpen, Trophy, HeartHandshake, Users, Palette, GraduationCap } from 'lucide-react';
 import { Program, Stat, FinancialData, Trustee } from './types';
 
@@ -5,6 +6,8 @@ export const FOUNDATION_NAME = "Elevate Youth Foundation";
 export const MISSION_STATEMENT = "To identify, support, and encourage young people who demonstrate potential in academics, sports, arts, and community service.";
 
 export const OFFICE_ADDRESS = "40A Vicent Street, Howick, Auckland, New Zealand";
+export const FOUNDATION_EMAIL = "elevateyouthfoundationnz@gmail.com";
+export const FOUNDATION_PHONE = "0225999395";
 
 export const ABOUT_TEXT = {
   history: "Established on October 21, 2025, by Settlor Bin Li, the Elevate Youth Foundation was created with a clear vision: to empower the youth of Aotearoa through structured mentorship and financial support.",
@@ -86,8 +89,8 @@ Key Legal & Structural Information (from Trust Deed):
 - History: Founded Oct 21, 2025, by Settlor Bin Li.
 - Trustees: Bin Li, Nan Li, Kai Sheng.
 - Programs: Educational Advancement, Athletics & Arts, Scholarships/Financial Aid, and Community Wellbeing.
+- Contact: ${FOUNDATION_EMAIL} | ${FOUNDATION_PHONE}
 - Transparency: 82% of funds go directly to programs.
-- Contact: hello@elevateyouth.org
 
 Answer questions about how to get involved (donate/volunteer), our specific legal purposes in NZ, and who leads the foundation.
 `;

@@ -1,5 +1,6 @@
+
 import React from 'react';
-import { MISSION_STATEMENT } from '../constants';
+import { MISSION_STATEMENT, FOUNDATION_EMAIL } from '../constants';
 
 export default function Hero() {
   return (
@@ -26,12 +27,18 @@ export default function Hero() {
             {MISSION_STATEMENT} We build bridges of opportunity for Kiwi youth to grow, lead, and contribute to our society.
           </p>
           <div className="mt-12 flex flex-col sm:flex-row gap-5">
-            <button className="bg-indigo-600 text-white px-10 py-4 rounded-full text-lg font-bold hover:bg-indigo-500 transition-all shadow-xl shadow-indigo-900/20 active:scale-95">
+            <a 
+              href={`mailto:${FOUNDATION_EMAIL}?subject=Support Mission Inquiry`}
+              className="bg-indigo-600 text-white px-10 py-4 rounded-full text-lg font-bold hover:bg-indigo-500 transition-all shadow-xl shadow-indigo-900/20 active:scale-95 text-center"
+            >
               Support Our Mission
-            </button>
-            <button className="bg-white/10 backdrop-blur-md text-white border border-white/20 px-10 py-4 rounded-full text-lg font-bold hover:bg-white/20 transition-all active:scale-95">
+            </a>
+            <a 
+              href={`mailto:${FOUNDATION_EMAIL}?subject=Mentor Application`}
+              className="bg-white/10 backdrop-blur-md text-white border border-white/20 px-10 py-4 rounded-full text-lg font-bold hover:bg-white/20 transition-all active:scale-95 text-center"
+            >
               Become a Mentor
-            </button>
+            </a>
           </div>
         </div>
       </div>

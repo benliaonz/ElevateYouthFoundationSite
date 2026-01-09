@@ -1,5 +1,7 @@
+
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { FOUNDATION_EMAIL } from '../constants';
 
 interface NavLinkProps {
   href: string;
@@ -13,7 +15,7 @@ const NavLink = ({ href, children }: NavLinkProps) => {
     const checkActive = () => {
       const currentPath = window.location.pathname;
       const targetPath = '/' + href;
-      setIsActive(currentPath === targetPath || (currentPath === '/' && href === 'index.html'));
+      setIsActive(currentPath === targetPath || (currentPath === '/' && href === 'index'));
     };
     checkActive();
     window.addEventListener('popstate', checkActive);
@@ -25,6 +27,9 @@ const NavLink = ({ href, children }: NavLinkProps) => {
   }, [href]);
 
   const handleClick = (e: React.MouseEvent) => {
+    // If it's a mailto link, let it behave naturally
+    if (href.startsWith('mailto:')) return;
+
     e.preventDefault();
     window.history.pushState({}, '', href);
     window.dispatchEvent(new CustomEvent('app-nav-change'));
@@ -51,6 +56,10 @@ export default function Navbar() {
 
   const handleMobileClick = (href: string) => {
     setIsOpen(false);
+    if (href.startsWith('mailto:')) {
+      window.location.href = href;
+      return;
+    }
     window.history.pushState({}, '', href);
     window.dispatchEvent(new CustomEvent('app-nav-change'));
   };
@@ -61,8 +70,8 @@ export default function Navbar() {
         <div className="flex justify-between h-20">
           <div className="flex items-center">
             <a 
-              href="index.html" 
-              onClick={(e) => { e.preventDefault(); handleMobileClick('index.html'); }}
+              href="/" 
+              onClick={(e) => { e.preventDefault(); handleMobileClick('index'); }}
               className="flex items-center group"
             >
               <div className="flex flex-col">
@@ -73,14 +82,17 @@ export default function Navbar() {
           </div>
           
           <div className="hidden md:flex items-center space-x-8">
-            <NavLink href="about.html">About</NavLink>
-            <NavLink href="programs.html">Programs</NavLink>
-            <NavLink href="trustees.html">Trustees</NavLink>
-            <NavLink href="impact.html">Impact</NavLink>
-            <NavLink href="contact.html">Contact</NavLink>
-            <button className="bg-indigo-950 text-white px-7 py-2.5 rounded-full font-bold hover:bg-indigo-800 transition-all shadow-lg shadow-indigo-950/10 active:scale-95 text-sm uppercase tracking-widest">
+            <NavLink href="about">About</NavLink>
+            <NavLink href="programs">Programs</NavLink>
+            <NavLink href="trustees">Trustees</NavLink>
+            <NavLink href="impact">Impact</NavLink>
+            <NavLink href="contact">Contact</NavLink>
+            <a 
+              href={`mailto:${FOUNDATION_EMAIL}?subject=Donation Inquiry`}
+              className="bg-indigo-950 text-white px-7 py-2.5 rounded-full font-bold hover:bg-indigo-800 transition-all shadow-lg shadow-indigo-950/10 active:scale-95 text-sm uppercase tracking-widest"
+            >
               Donate Now
-            </button>
+            </a>
           </div>
 
           <div className="flex items-center md:hidden">
@@ -98,20 +110,23 @@ export default function Navbar() {
       {isOpen && (
         <div className="md:hidden bg-white border-t border-indigo-50 animate-in fade-in slide-in-from-top-4 duration-300">
           <div className="px-4 pt-4 pb-8 space-y-1">
-            {['about.html', 'programs.html', 'trustees.html', 'impact.html', 'contact.html'].map((href) => (
+            {['about', 'programs', 'trustees', 'impact', 'contact'].map((path) => (
               <a 
-                key={href}
-                href={href} 
-                onClick={(e) => { e.preventDefault(); handleMobileClick(href); }}
+                key={path}
+                href={path} 
+                onClick={(e) => { e.preventDefault(); handleMobileClick(path); }}
                 className="block px-4 py-4 text-lg font-bold text-slate-700 hover:text-indigo-950 hover:bg-indigo-50 rounded-2xl transition-all capitalize"
               >
-                {href.replace('.html', '')}
+                {path}
               </a>
             ))}
             <div className="pt-6 px-4">
-              <button className="w-full bg-indigo-950 text-white px-5 py-5 rounded-2xl font-black text-lg hover:bg-indigo-900 transition-colors shadow-xl shadow-indigo-950/20">
+              <a 
+                href={`mailto:${FOUNDATION_EMAIL}`}
+                className="block text-center w-full bg-indigo-950 text-white px-5 py-5 rounded-2xl font-black text-lg hover:bg-indigo-900 transition-colors shadow-xl shadow-indigo-950/20"
+              >
                 Donate Now
-              </button>
+              </a>
             </div>
           </div>
         </div>
